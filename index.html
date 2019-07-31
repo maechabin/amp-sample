@@ -3,8 +3,14 @@
 <html amp lang="en">
   <head>
     <meta charset="utf-8" />
+    <meta name="amp-experiments-opt-in" content="experiment-a,experiment-b" />
     <!-- Includes and loads the AMP JS library. -->
     <script async src="https://cdn.ampproject.org/v0.js"></script>
+    <script
+      async
+      custom-element="amp-script"
+      src="https://cdn.ampproject.org/v0/amp-script-0.1.js"
+    ></script>
     <title>Hello, AMPs</title>
     <!--
       Points to the regular HTML version of the AMP HTML document
@@ -89,5 +95,23 @@
   </head>
   <body>
     <h1>Welcome to the mobile web</h1>
+    <amp-script layout="container" script="script">
+      <p>When you press the button, the text below changes color randomly.</p>
+      <button id="button" sandbox="allow-forms">button</button>
+      <p class="text">texttexttexttext</p>
+    </amp-script>
+
+    <script id="script" type="text/plain" target="amp-script">
+      function getColorCode() {
+        const color = (Math.random() * 0xFFFFFF | 0).toString(16);
+        return `#${("000000" + color).slice(-6)}`;
+      }
+
+      const button = document.querySelector('#button');
+      const text = document.querySelector('.text');
+      button.addEventListener('click', (e) => {
+        text.style.color = getColorCode();
+      });
+    </script>
   </body>
 </html>

@@ -95,13 +95,13 @@
   </head>
   <body>
     <h1>Welcome to the mobile web</h1>
-    <amp-script layout="container" script="script">
+    <amp-script layout="container" script="sample">
       <p>When you press the button, the text below changes color randomly.</p>
       <button id="button" sandbox="allow-forms">button</button>
       <p class="text">texttexttexttext</p>
     </amp-script>
 
-    <script id="script" type="text/plain" target="amp-script">
+    <script id="sample" type="text/plain" target="amp-script">
       function getColorCode() {
         const color = (Math.random() * 0xFFFFFF | 0).toString(16);
         return `#${("000000" + color).slice(-6)}`;
@@ -113,5 +113,13 @@
         text.style.color = getColorCode();
       });
     </script>
+
+    <hr />
+
+    <amp-script layout="container" src="/static/app.js">
+      <p>When you press the button, the text below changes color randomly.</p>
+      <button id="button" sandbox="allow-forms">button</button>
+      <p class="text">texttexttexttext</p>
+    </amp-script>
   </body>
 </html>

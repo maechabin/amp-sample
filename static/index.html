@@ -95,6 +95,7 @@
   </head>
   <body>
     <h1>Welcome to the mobile web</h1>
+
     <amp-script layout="container" script="sample">
       <p>When you press the button, the text below changes color randomly.</p>
       <button id="button" sandbox="allow-forms">button</button>
@@ -114,12 +115,16 @@
       });
     </script>
 
-    <hr />
-
-    <amp-script layout="container" src="/static/app.js">
-      <p>When you press the button, the text below changes color randomly.</p>
+    <amp-script layout="container" src="/app.js">
       <button id="button" sandbox="allow-forms">button</button>
       <p class="text">texttexttexttext</p>
+    </amp-script>
+
+    <hr />
+
+    <amp-script layout="container" src="/app.e02ed630.js">
+      <p>Below is a map.</p>
+      <div id="map" style="height: 300px;border: 1px solid #ccc;"></div>
     </amp-script>
   </body>
 </html>
